@@ -1,14 +1,14 @@
 *GET*
 
-/signup 				    - retorna formulari de signup
+/signup									- retorna formulari de signup
 
-/signin 				    - retorna formulari de signin
+/signin									- retorna formulari de signin
 
-/user 				      - retorna info d’user
+/user										- retorna info d’user
 
 /dashboard
 
-/search_puntbrut		- retorna punts bruts propers
+/search_puntbrut				- retorna punts bruts propers
 
 /user/settings
 
@@ -16,21 +16,21 @@
 
 /admin/dashboard
 
-/admin/users			  - retorna info de tots els users
+/admin/users						- retorna info de tots els users
 
 
 
 *POST*
 
-/new_puntbrut 		  - insereix un nou punt brut a BD
+/new_puntbrut						- insereix un nou punt brut a BD
 
-/new_user				    - insereix nou user a BD
+/new_user								- insereix nou user a BD
 
 
 
 *PATCH*
 
-/update_user			  - actualitza les dades d’un user
+/update_user						- actualitza les dades d’un user
 
 /update_puntbrut		
 
