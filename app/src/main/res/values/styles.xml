@@ -9,4 +9,12 @@
         <item name="android:ems">10</item>
         <item name="android:inputType">textPersonName</item>
     </style>
+
+    <style name="signin_button">
+        <item name="android:layout_width">@dimen/login_button_w</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_gravity">clip_horizontal</item>
+        <item name="android:layout_marginLeft">@dimen/login_button_margin_left</item>
+        <item name="android:layout_weight">1</item>
+    </style>
 </resources>
