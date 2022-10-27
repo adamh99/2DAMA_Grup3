@@ -17,12 +17,12 @@ public class LoginActivity extends AppCompatActivity {
 
     public void loginButtonClicked(View v){
         TextView usernameField = findViewById(R.id.usernameField);
-        String username = usernameField.getText().toString();
+
 
         TextView passwordField = findViewById(R.id.passwordField);
-        String password = usernameField.getText().toString();
+        String credentials = usernameField.getText().toString() + " " + usernameField.getText().toString();
 
-        Log.d("debug",username+" "+password);
+        new Auth().execute(credentials);
 
     }
 }

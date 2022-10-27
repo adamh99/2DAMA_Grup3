@@ -10,7 +10,8 @@
     <EditText
         android:id="@+id/usernameField"
         android:hint="@string/usernamehint"
-        style="@style/textfield" />
+        style="@style/textfield"
+        android:digits="0123456789qwertzuiopasdfghjklyxcvbnm"/>
 
     <EditText
         android:id="@+id/passwordField"
@@ -19,7 +20,8 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:hint="@string/passwordhint"
-        android:inputType="textPassword" />
+        android:inputType="textPassword"
+        android:digits="0123456789qwertzuiopasdfghjklyxcvbnm"/>
 
     <LinearLayout
         android:layout_width="match_parent"
