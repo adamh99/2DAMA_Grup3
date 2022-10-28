@@ -8,6 +8,9 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
+
+import java.util.prefs.Preferences;
+
 //esta actividad no tiene layout, solo sirve para ver si el usuario es nuevo o no y enseñarle la bienvenida o directamente el login
 public class EntryActivity extends AppCompatActivity {
     SharedPreferences sharedPreferences;
@@ -28,10 +31,13 @@ public class EntryActivity extends AppCompatActivity {
     public boolean firstTime(){
         boolean firstTime = true;
         sharedPreferences = getPreferences(MODE_PRIVATE);
+
         if(sharedPreferences.contains("welcomed")){
             firstTime = false;
         }else {
-            sharedPreferences.edit().putBoolean("welcomed", true);
+            SharedPreferences.Editor edit = sharedPreferences.edit();
+            edit.putBoolean("welcomed", true);
+            edit.commit();
         }
         return firstTime;
     }
