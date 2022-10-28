@@ -18,7 +18,6 @@ public class LoginActivity extends AppCompatActivity {
     public void loginButtonClicked(View v){
         TextView usernameField = findViewById(R.id.usernameField);
 
-
         TextView passwordField = findViewById(R.id.passwordField);
         String credentials = usernameField.getText().toString() + " " + usernameField.getText().toString();
 
