@@ -12,7 +12,9 @@
         android:layout_height="246dp"
         tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="162dp"
-        tools:layout_editor_absoluteY="185dp" />
+        tools:layout_editor_absoluteY="185dp"
+        android:id="@+id/recyclerview"/>
+
 
     <TextView
         android:id="@+id/pedidos"
