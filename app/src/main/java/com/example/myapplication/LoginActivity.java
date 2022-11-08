@@ -1,5 +1,6 @@
 package com.example.myapplication;
 
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -14,6 +15,7 @@ private static final String LOG_TAG= LoginActivity.class.getSimpleName();
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
     }
 
     /*/public void loginButtonClicked(View v){
@@ -28,7 +30,8 @@ private static final String LOG_TAG= LoginActivity.class.getSimpleName();
     /*/
 
     public void launchrecyclertest(View view) {
-        Log.d(LOG_TAG,"TEST");
+        Log.d(LOG_TAG,"TEST2");
         Intent intent = new Intent(this, recyclerview.class);
+        startActivity(intent);
     }
 }

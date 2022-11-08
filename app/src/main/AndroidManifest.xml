@@ -18,6 +18,7 @@
             android:name=".recyclerview"
             android:label="@string/title_activity_recyclerview"
             android:parentActivityName=".LoginActivity"
+            android:exported="false"
              >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
