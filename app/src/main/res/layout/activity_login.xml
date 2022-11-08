@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#83C6E4"
+    android:background="#2196F3"
     android:orientation="vertical"
     tools:context=".LoginActivity">
 
@@ -39,7 +39,7 @@
             android:id="@+id/signup"
             style="@style/signin_button"
             android:layout_width="@dimen/login_button_w"
-            android:onClick="recyclertest"
+            android:onClick="launchrecyclertest"
             android:text="@string/register_button" />
 
         <Button

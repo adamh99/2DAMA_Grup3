@@ -16,7 +16,7 @@ private static final String LOG_TAG= LoginActivity.class.getSimpleName();
         setContentView(R.layout.activity_login);
     }
 
-    public void loginButtonClicked(View v){
+    /*/public void loginButtonClicked(View v){
         TextView usernameField = findViewById(R.id.usernameField);
 
         TextView passwordField = findViewById(R.id.passwordField);
@@ -25,11 +25,10 @@ private static final String LOG_TAG= LoginActivity.class.getSimpleName();
         new Auth().execute(credentials);
 
     }
+    /*/
 
-    public void recyclertest(View view) {
-        Log.d(LOG_TAG, "TEST RECYCLER SUCCES");
-        Intent intent = new Intent(this,recyclerview.class);
-        startActivity(intent);
-
+    public void launchrecyclertest(View view) {
+        Log.d(LOG_TAG,"TEST");
+        Intent intent = new Intent(this, recyclerview.class);
     }
 }
