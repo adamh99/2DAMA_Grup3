@@ -9,19 +9,24 @@
 
     <EditText
         android:id="@+id/usernameField"
-        android:hint="@string/usernamehint"
         style="@style/textfield"
-        android:digits="0123456789qwertzuiopasdfghjklyxcvbnm"/>
+        android:digits="0123456789qwertzuiopasdfghjklyxcvbnm"
+        android:hint="@string/usernamehint"
+        android:minHeight="48dp"
+        android:textColorHint="#757575"
+        android:autofillHints="" />
 
     <EditText
         android:id="@+id/passwordField"
         style="@style/textfield"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:digits="0123456789qwertzuiopasdfghjklyxcvbnm"
         android:ems="10"
         android:hint="@string/passwordhint"
         android:inputType="textPassword"
-        android:digits="0123456789qwertzuiopasdfghjklyxcvbnm"/>
+        android:minHeight="48dp"
+        android:textColorHint="#757575" />
 
     <LinearLayout
         android:layout_width="match_parent"
