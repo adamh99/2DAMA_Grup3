@@ -16,4 +16,6 @@
     <string name="title_activity_main2">MainActivity2</string>
     <string name="welcome_to_plastic_precios">Welcome to Plastic Precios</string>
     <string name="tap_the_screen">Tap the screen</string>
+    <string name="title_activity_recyclerview">Recyclerview</string>
+    <string name="pedidos_disponibles">Pedidos Disponibles</string>
 </resources>
