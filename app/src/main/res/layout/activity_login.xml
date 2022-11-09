@@ -39,7 +39,7 @@
             android:id="@+id/signup"
             style="@style/signin_button"
             android:layout_width="@dimen/login_button_w"
-            android:onClick="launchrecyclertest"
+            android:onClick="recyclerprueba"
             android:text="@string/register_button" />
 
         <Button

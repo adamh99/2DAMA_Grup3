@@ -18,4 +18,5 @@
     <string name="tap_the_screen">Tap the screen</string>
     <string name="title_activity_recyclerview">Recyclerview</string>
     <string name="pedidos_disponibles">Pedidos Disponibles</string>
+    <string name="test">message</string>
 </resources>
