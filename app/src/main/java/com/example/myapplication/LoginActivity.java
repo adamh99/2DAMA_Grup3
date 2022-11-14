@@ -35,4 +35,9 @@ private static final String LOG_TAG= LoginActivity.class.getSimpleName();
         Intent intent = new Intent(this, Rview.class);
         startActivity(intent);
     }
+
+    public void signUp(View v){
+        Intent intent = new Intent(this, rview.class );
+        startActivity(intent);
+    }
 }
