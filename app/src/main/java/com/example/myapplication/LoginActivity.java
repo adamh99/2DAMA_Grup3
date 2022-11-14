@@ -7,7 +7,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.TextView;
 
 public class LoginActivity extends AppCompatActivity {
 private static final String LOG_TAG= LoginActivity.class.getSimpleName();
@@ -29,9 +28,11 @@ private static final String LOG_TAG= LoginActivity.class.getSimpleName();
     }
     /*/
 
-    public void launchrecyclertest(View view) {
-        Log.d(LOG_TAG,"TEST2");
-        Intent intent = new Intent(this, recyclerview.class);
+
+
+    public void recyclerprueba(View view) {
+        Log.d(LOG_TAG, "Va a funcionar");
+        Intent intent = new Intent(this, Rview.class);
         startActivity(intent);
     }
 }
