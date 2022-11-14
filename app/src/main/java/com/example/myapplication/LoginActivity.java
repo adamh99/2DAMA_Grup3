@@ -32,7 +32,7 @@ private static final String LOG_TAG= LoginActivity.class.getSimpleName();
 
     public void recyclerprueba(View view) {
         Log.d(LOG_TAG, "Va a funcionar");
-        Intent intent = new Intent(this, Rview.class);
+        Intent intent = new Intent(this, rview.class);
         startActivity(intent);
     }
 
