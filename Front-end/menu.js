@@ -6,30 +6,19 @@ new Vue({
       items: [
         {
           name : 'Web',
-          children : ['News', 'Maps', 'Books', 'Flights', 'Apps']
+          children : ['User-Panel']
         }, 
         {
-          name : 'Shopping',
-          children : ['Books', 'Flights', 'Apps']
+          name : 'Rewards',
+          children : ['My Points', 'Rewards']
         },
-        {
-          name : 'Videos',
-          children : ['News', 'Flights', 'Apps']
-        },
-        {
-          name : 'Images',
-          children : ['News', 'Maps']
-        }
+      
       ],
-      selectIndexLang: 0,
-      itemsLang: [
-          { id: 'FR', text: 'France', icon: 'mdi-clock' },
-          { id: 'EN', text: 'English', icon: 'mdi-flag' },
-      ],
+    
       selectIndexUser: 0,
       itemsUser: [
           { id: 'param', text: 'Paramètres', icon: 'mdi-cog-outline' },
-          { id: 'logout', text: 'Déconnection', icon: 'mdi-power' },
+          { id: 'logout', text: 'LOG-OUT', icon: 'mdi-power' },
       ],
     })
   })
