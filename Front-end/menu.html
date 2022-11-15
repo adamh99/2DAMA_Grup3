@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/@mdi/font@6.x/css/materialdesignicons.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet">
+    <title>Main Page</title>
+</head>
+<body>
+    <div id="menu">
+        <v-app id="inspire">
+          <v-card>
+            <v-toolbar
+              color="deep-purple accent-4"
+              dark
+              flat
+            >
+              <v-icon>mdi-currency-btc</v-icon>
+              <v-toolbar-title style="font-size:50px;">MHKT</v-toolbar-title>
+              
+              <v-spacer></v-spacer>
+      
+              <v-menu offset-y>
+                <template v-slot:activator="{ on, attrs }">
+                  <v-btn
+                         color="primary"
+                         dark
+                         v-bind="attrs"
+                         v-on="on"
+                         >
+                    {{itemsLang[selectIndexLang].id}}
+                  </v-btn>
+                </template>
+                <v-list>
+                  <v-list-item-group
+                    v-model="selectIndexLang"
+                    color="primary"
+                  >
+                    <v-list-item
+                      v-for="(itemL, index) in itemsLang"
+                      :key="index"
+                    >
+                      <v-list-item-icon>
+                        <v-icon v-text="itemL.icon"></v-icon>
+                      </v-list-item-icon>
+                      <v-list-item-title>{{itemL.id}} - {{itemL.text}}</v-list-item-title>
+                    </v-list-item>
+                  </v-list>
+                </v-list-item-group>
+              </v-menu>
+              
+              <div style="margin-right:20px;"></div>
+              
+              <v-menu offset-y>
+                <template v-slot:activator="{ on, attrs }">
+                  <v-btn
+                    icon
+                    v-bind="attrs"
+                    v-on="on"
+                  >
+                    <v-icon>mdi-account-settings</v-icon>
+                  </v-btn>
+                </template>
+                <v-list>
+                  <v-list-item-group
+                    v-model="selectIndexUser"
+                    color="primary"
+                  >
+                    <v-list-item
+                      v-for="(itemU, index) in itemsUser"
+                      :key="index"
+                    >
+                      <v-list-item-icon>
+                        <v-icon v-text="itemU.icon"></v-icon>
+                      </v-list-item-icon>
+                      <v-list-item-title>{{itemU.text}}</v-list-item-title>
+                    </v-list-item>
+                  </v-list>
+                </v-list-item-group>
+              </v-menu>
+      
+              <template v-slot:extension>
+                <v-menu
+                  v-for="item in items"
+                  :key="item.name"
+                  offset-y
+                >
+                  <template v-slot:activator="{ on, attrs }">
+                    <v-btn
+                      text
+                      class="align-self-center mr-4"
+                      v-bind="attrs"
+                      v-on="on"
+                    >
+                      {{ item.name }}
+                      <v-icon right>
+                        mdi-menu-down
+                      </v-icon>
+                    </v-btn>
+                  </template>
+      
+                  <v-list class="grey lighten-3">
+                    <v-list-item
+                      v-for="child in item.children"
+                      :key="child"
+                    >
+                      {{ child }}
+                    </v-list-item>
+                  </v-list>
+                </v-menu>
+              </template>
+            </v-toolbar>
+          </v-card>
+        </v-app>
+      </div>
+      
+       
+<script src="menu.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/babel-polyfill/dist/polyfill.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
+</body>
+</html>

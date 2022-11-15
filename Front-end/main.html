@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+    
+  <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/@mdi/font@6.x/css/materialdesignicons.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet">
+</head>
+<body>
+    
+  <div id="app">
+    <v-app >
+      <v-container grid-list-xl text-xs-center>
+        <v-layout row wrap>
+          <v-flex xs4 offset-xs4>
+            <v-card dark color="dark" elevation-24 style="padding: 20px; border: 1px; border-radius: 50px;">
+              <v-card-text>
+                <h4 class="display-2 font-weight-bold">Login</h4>
+                <hr>
+                <br>
+                <v-form>
+                  <v-text-field 
+                    clearable
+                    v-model="username"
+                    
+                    
+                    type="text"
+                    @click:prepend="prependClicked"
+                    color="white"
+                    @click:append-outer="appendClicked"
+                    counter="10"
+                  >
+                  </v-text-field>
+                  <v-text-field 
+                    clearable
+                    v-model="password"
+                   
+                    
+                    type="password"
+                    @click:prepend="prependClicked"
+                    color="white"
+                    @click:append-outer="appendClicked"
+                  >
+                  </v-text-field>
+               </v-form>
+               <br>
+                <v-btn
+                href="./menu.html"
+                 color="grey darken-2" large>Enter</v-btn>
+              </v-card-text>
+            </v-card>
+          </v-flex>
+        </v-layout>
+        
+        
+      </v-container>
+   <v-app>
+ </div>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.17/vue.min.js"> </script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/js-polyfills/0.1.42/polyfill.min.js"></script> 
+ <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/vuetify/1.2.0/vuetify.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/babel-polyfill/dist/polyfill.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vuetify@2.3.4/dist/vuetify.min.js"></script>
+    <script src="index.js"></script>
+</body>
+</html>
