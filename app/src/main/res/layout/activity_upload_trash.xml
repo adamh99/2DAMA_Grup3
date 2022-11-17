@@ -7,15 +7,10 @@
     android:orientation="vertical"
     tools:context=".uploadTrash">
 
-    <Button
-        android:id="@+id/button3"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Button" />
-
     <com.google.android.gms.maps.MapView
         android:id="@+id/mapView6"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="513dp"
+        android:apiKey="AIzaSyBTt9Bwtjmi-oPLLzHr54ShmVa0u18xUg4" />
 
 </LinearLayout>
