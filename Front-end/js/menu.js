@@ -4,13 +4,10 @@ new Vue({
     data: () => ({
       currentItem: 'tab-Web',
       items: [
-        {
-          name : 'Web',
-          children : ['User-Panel']
-        }, 
+     
         {
           name : 'Rewards',
-          children : ['My Points', 'Rewards']
+          
         },
       
       ],

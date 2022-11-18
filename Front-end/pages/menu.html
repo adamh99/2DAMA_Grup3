@@ -104,18 +104,36 @@
                       </v-icon>
                     </v-btn>
                   </template>
-      
+
+                  
+                  
                   <v-list class="grey lighten-3">
                     <v-list-item
+                    k
                       v-for="child in item.children"
                       :key="child"
                     >
                       {{ child }}
                     </v-list-item>
                     
-           
+                    
                   </v-list>
-              
+                  <v-btn
+                  class="ma-2"
+                  color="primary"
+                  label
+                  dark
+                  href="./userpanel.html"
+                >userpanel</v-btn>
+                <v-btn
+                class="ma-2"
+                color="primary"
+                label
+                dark
+                href="./rewards.html"
+              >Rewards</v-btn>
+               
+            
                 </v-menu>
                 
               </template>
