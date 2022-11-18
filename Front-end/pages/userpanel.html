@@ -4,27 +4,106 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>User Panel</title>
-    <link href="https://fonts.googleapis.com/css?family=Material+Icons" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/@mdi/font@5.x/css/materialdesignicons.min.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/vuetify@2.4.11/dist/vuetify.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" href="/Front-end/styles/styles.css">
+    <title>UserPanel</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/@mdi/font@5.x/css/materialdesignicons.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/vuetify@2.4.11/dist/vuetify.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900"
+      rel="stylesheet"
+      type="text/css"
+    />
   </head>
   <body>
     <div id="app">
-      <v-app> 
-        
+      <v-app id="inspire">
+        <v-toolbar class="flex-grow-0" dark color="indigo" shaped>
+          <v-toolbar-title>User-Panel</v-toolbar-title>
+          <v-spacer></v-spacer>
+          <v-btn href="./rewards.html">rewards </v-btn>
+
+          <v-btn href="./menu.html">Go Back </v-btn>
+        </v-toolbar>
+
+        <v-card
+      :loading="loading"
+      class="mx-auto my-12"
+      max-width="374"
+    >
+      <template slot="progress">
+        <v-progress-linear
+          color="deep-purple"
+          height="10"
+          indeterminate
+        ></v-progress-linear>
+      </template>
+  
+      <v-img
+        height="250"
+        src="user.png"
+      ></v-img>
+  
+      <v-card-title>User Name</v-card-title>
+  
+      <v-card-text>
+        <v-row
+          align="center"
+          class="mx-0"
+        >
+          <v-rating
+            :value="4.5"
+            color="amber"
+            dense
+            half-increments
+            readonly
+            size="14"
+          ></v-rating>
+  
+          <div class="grey--text ms-4">
+            4.5 (413)
+          </div>
+        </v-row>
+  
+        <div class="my-4 text-subtitle-1">
+          Membre
+        </div>
+  
+        <div>mail</div>
+      </v-card-text>
+  
+      <v-divider class="mx-4"></v-divider>
+  
+      <v-card-title>Description</v-card-title>
+      <v-text>
+        Put your Description
+      </v-text>
+
+     
+      </v-card-text>
+  
+     
+      </v-card-actions>
+    </v-card>
       </v-app>
     </div>
+    <script src="https://unpkg.com/babel-polyfill/dist/polyfill.min.js"></script>
+    <script src="https://unpkg.com/vuetify@2.6.12/dist/vuetify.min.js"></script>
+    <script src="https://unpkg.com/vue@2.x/dist/vue.js"></script>
 
-
-
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vuetify/1.2.0/vuetify.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/babel-polyfill/dist/polyfill.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/babel-polyfill/dist/polyfill.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/babel-polyfill/dist/polyfill.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
-<script src="/Front-end/js/panel.js"
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vuetify@2.3.4/dist/vuetify.min.js"></script>
+    <script src="/Front-end/js/panel.js"></script>
   </body>
 </html>
