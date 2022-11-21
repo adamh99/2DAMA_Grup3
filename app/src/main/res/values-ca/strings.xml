@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">La meva app</string>
+    <string name="action_settings">Configuració</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">Primer Fragment</string>
+    <string name="second_fragment_label">Segon Fragment</string>
+    <string name="next">Següent</string>
+    <string name="previous">Anterior</string>
+
+    <string name="hello_first_fragment">Hola, Primer fragment</string>
+    <string name="hello_second_fragment">Hola, segon fragment</string>
+    <string name="usernamehint">Nom Usuari</string>
+    <string name="passwordhint">Contrasenya</string>
+    <string name="login_button">Inici Sessió</string>
+    <string name="register_button">Registrar-se</string>
+    <string name="title_activity_main2">MainActivity2</string>
+    <string name="welcome_to_plastic_precios">Bienveningut a Plastic Preciós</string>
+    <string name="tap_the_screen">Toca la pantalla</string>
+    <string name="title_activity_recyclerview">Recyclerview</string>
+    <string name="pedidos_disponibles">Disponible</string>
+    <string name="test">message</string>
+
+
+
+
+</resources>

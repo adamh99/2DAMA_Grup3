@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Mi app</string>
+    <string name="action_settings">Ajustes</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">Primer Fragmento</string>
+    <string name="second_fragment_label">Segundo Fragmento</string>
+    <string name="next">Siguiente</string>
+    <string name="previous">Anterior</string>
+
+    <string name="hello_first_fragment">Hola, Primer fragmento</string>
+    <string name="hello_second_fragment">Hola, segundo fragmento</string>
+    <string name="usernamehint">Nombre de Usuario</string>
+    <string name="passwordhint">Contraseña</string>
+    <string name="login_button">Iniciar Sesión</string>
+    <string name="register_button">Registrarse</string>
+    <string name="title_activity_main2">MainActivity2</string>
+    <string name="welcome_to_plastic_precios">Bienvenido a Plastic Precios</string>
+    <string name="tap_the_screen">Toca la pantalla</string>
+    <string name="title_activity_recyclerview">Recyclerview</string>
+    <string name="pedidos_disponibles">Disponible</string>
+    <string name="test">message</string>
+</resources>
