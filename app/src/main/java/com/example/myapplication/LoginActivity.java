@@ -36,4 +36,9 @@ private static final String LOG_TAG= LoginActivity.class.getSimpleName();
         Intent intent = new Intent(this, dashboard.class );
         startActivity(intent);
     }
+
+    public void login(View v) {
+        Intent intent = new Intent(this, dashboard.class);
+        startActivity(intent);
+    }
 }
