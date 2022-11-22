@@ -148,6 +148,7 @@ function userExists (nom) {
             });
         }
         return exist;
+        
     });
 }
 
