@@ -5,12 +5,19 @@ const mysql = require ("mysql2");
 
 const app = express();
 
-var con  = mysql.createConnection ({
+/*var con  = mysql.createConnection ({
     host: "labs.inspedralbes.cat",
     user: "a21marsanbla_grup3",
     password: "Projecte123",
     database: "a21marsanbla_project"
-});
+});*/
+
+const bdParams = {
+    host: "labs.inspedralbes.cat",
+    user: "a21marsanbla_grup3",
+    password: "Projecte123",
+    database: "a21marsanbla_project"
+}
 
 /*con.connect(function(err){
     if(err) throw err;
@@ -25,7 +32,13 @@ var con  = mysql.createConnection ({
 
     }
 });*/
-
+app.use(cors(
+    {
+        origin: function(origin, callback){
+            return callback(null, true);
+        }
+    }
+));
 
 
 
@@ -81,9 +94,11 @@ app.get("/auth/:user/:pwd", (req, res) => {
 
 //Creacio de nou usuari
 app.get("/create/:user/:pwd", (req, res) => {
-
+    console.log("ha entrat a creacio");
     let user = req.params.user;
     let password = req.params.pwd;
+    let email=req.params.email;
+    
 
     let creation = {
         text: ""
@@ -91,8 +106,10 @@ app.get("/create/:user/:pwd", (req, res) => {
 
     if(userExists(user)){
         creation.text = "Ja existeix un usuari amb aquests paràmetres, canvia el nom siusplau";
+        console.log("H entrat a user exist");
     } else {
-        insertUser(user,password);
+        insertUser(user,password,email);
+        console.log("Ha entrat a user inset user");
     }
     
     let str = JSON.stringify(creation);
@@ -108,6 +125,7 @@ function userExists (nom) {
 
     
     let exist;
+    let con = mysql.createConnection(bdParams);
 
     con.connect(function(err){
         if(err) throw err;
@@ -135,18 +153,19 @@ function userExists (nom) {
 
 
 //INSERT USER
-function insertUser(nom, password){
+function insertUser(nom, password,email){
     
     
     let insertOK;
+    let con = mysql.createConnection(bdParams);
 
     con.connect(function(err){
         if(err) throw err;
         else {
 
-            let sql = "INSER INTO usuari (NOM,PASS)VALUES ('" + nom + "', '" + password + "')";
+            let sql = "INSERT INTO usuari (ID,NOM,PASS,MAIL) VALUES (2,'" + nom + "', '" + password + "','"+email+"')";
 
-            con.query(sqlInsert, function (err, result){
+            con.query(sql, function (err, result){
                 if(err) throw err;
                 if(result.affectedRows == 1){
                     insertOK = true;

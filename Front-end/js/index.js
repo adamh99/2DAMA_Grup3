@@ -3,7 +3,7 @@ var app = new Vue ({
     vuetify : new Vuetify(),
     data:{
         user:"",
-        password:"",
+        pwd:"",
         
         name:"",
         email:"",
@@ -41,6 +41,7 @@ var app = new Vue ({
              const myHeaders = new Headers();
 
              fetch("http://localhost:3000/create/" + this.user + "/" + this.pwd, {
+                
                  method: "GET",
                  headers: myHeaders,
                  mode: 'cors',

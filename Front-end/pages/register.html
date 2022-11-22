@@ -10,10 +10,6 @@
   <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/@mdi/font@6.x/css/materialdesignicons.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet">
-  <script src="https://unpkg.com/babel-polyfill/dist/polyfill.min.js"></script>
-  <!--script src="https://unpkg.com/vuetify@2.6.10/dist/vuetify.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/vue@2.7.10/dist/vue.js"></script-->
-
 </head>
 <body>
     
@@ -24,40 +20,53 @@
           <v-flex xs4 offset-xs4>
             <v-card dark color="dark" elevation-24 style="padding: 20px; border: 1px; border-radius: 50px;">
               <v-card-text>
-                <h4 class="display-2 font-weight-bold">Login</h4>
+                <h4 class="display-2 font-weight-bold">Register</h4>
                 <hr>
                 <br>
                 <v-form>
                   <v-text-field 
-                    clearable
-                    v-model="username"
                     
+                    v-model="user"
                     
+                    label="User name"
                     type="text"
-                    @click:prepend="prependClicked"
+                    
                     color="white"
-                    @click:append-outer="appendClicked"
+                    
                     counter="10"
                   >
                   </v-text-field>
                   <v-text-field 
                     clearable
-                    v-model="password"
-                   
+                    v-model="email"
+                    label="Email"
                     
-                    type="password"
-                    @click:prepend="prependClicked"
+                    
+                    type="email"
+                    
                     color="white"
-                    @click:append-outer="appendClicked"
+                    
                   >
                   </v-text-field>
+                  <v-text-field 
+                    solo
+                    clearable
+                    v-model="pwd"
+                    label="Password"
+                    
+                    type="password"
+                    
+                    color="white"
+                    
+                  >
+                  </v-text-field>
+                  
                </v-form>
                <br>
                 <v-btn
-                href="./menu.html"
-                 color="grey darken-2" large>Enter</v-btn>
-                <v-btn
-                color="grey darken-2" large href="./register.html">Sign Up</v-btn>
+                
+                  @click="createUser">Registrar</v-btn>
+                
               </v-card-text>
             </v-card>
           </v-flex>
@@ -67,16 +76,13 @@
       </v-container>
    <v-app>
  </div>
-
-    <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
- <!--script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.17/vue.min.js"> </script>
- <script src="https://cdnjs.cloudflare.com/ajax/libs/js-polyfills/0.1.42/polyfill.min.js"></script> 
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.17/vue.min.js"> </script>
+  
  <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
  <script src="https://cdnjs.cloudflare.com/ajax/libs/vuetify/1.2.0/vuetify.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/babel-polyfill/dist/polyfill.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vuetify@2.3.4/dist/vuetify.min.js"></script>
-    <script src="/Front-end/js/index.js"></script-->
+    <script src="/Front-end/js/index.js"></script>
 </body>
 </html>

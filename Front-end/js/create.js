@@ -1,4 +1,4 @@
-new Vue({
+var app=new Vue({
   el: "#app",
   vuetify: new Vuetify(),
   data: () => ({
@@ -11,6 +11,9 @@ new Vue({
     country: null,
     formHasErrors: false,
     submit: false,
+    user:"",
+    pwd:"",
+    email:""
   }),
 
   computed: {
@@ -56,5 +59,6 @@ new Vue({
         this.$refs[f].validate(true);
       });
     },
+    
   },
 });
