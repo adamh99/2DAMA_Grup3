@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:tools="http://schemas.android.com/tools" >
 
     <meta-data
         android:name="com.google.android.geo.API_KEY"
-        android:value="AIzaSyBTt9Bwtjmi-oPLLzHr54ShmVa0u18xUg4" />
+        android:value="${MAPS_API_KEY}" />
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -20,7 +20,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication"
-        tools:targetApi="31">
+        tools:targetApi="31" >
 
         <!--
              TODO: Before you run your application, you need a Google Maps API key.
@@ -35,7 +35,7 @@
         -->
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyAbDxv_hQGTw4ZI1qWCfEy2Pau9Y-o9OJo" />
+            android:value="YOUR_API_KEY" />
 
         <activity
             android:name=".MapsActivity"
@@ -43,7 +43,7 @@
             android:label="@string/title_activity_maps" />
         <activity
             android:name=".uploadTrash"
-            android:exported="false">
+            android:exported="false" >
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
@@ -51,35 +51,35 @@
         <activity
             android:name=".dashboard"
             android:exported="false"
-            android:parentActivityName=".LoginActivity">
+            android:parentActivityName=".LoginActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.myapplication.LoginActivity" />
         </activity>
         <activity
             android:name=".rview"
-            android:exported="false">
+            android:exported="false" >
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
             android:name=".WelcomeActivity"
-            android:exported="false">
+            android:exported="false" >
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
             android:name=".LoginActivity"
-            android:exported="false">
+            android:exported="false" >
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
             android:name=".EntryActivity"
-            android:exported="true">
+            android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

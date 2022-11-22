@@ -51,7 +51,7 @@ public class uploadTrash extends FragmentActivity implements OnMapReadyCallback 
 
     private void initMap(){
         Log.d("TAG", "initMap: initializing map");
-        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.mapView);
+        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
 
     }
