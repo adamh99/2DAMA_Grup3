@@ -36,21 +36,21 @@
         android:ems="10"
         android:inputType="textPersonName"
         android:text="Long"
+        tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="96dp"
-        tools:layout_editor_absoluteY="448dp"
-        tools:ignore="MissingConstraints" />
+        tools:layout_editor_absoluteY="429dp" />
 
     <EditText
         android:id="@+id/etPlannedDate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:clickable="true"
         android:ems="10"
+        android:focusable="false"
         android:inputType="date"
         android:text="Date"
-        android:focusable="false"
-        android:clickable="true"
-        tools:layout_editor_absoluteX="98dp"
-        tools:layout_editor_absoluteY="515dp"
-        tools:ignore="MissingConstraints" />
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="96dp"
+        tools:layout_editor_absoluteY="494dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

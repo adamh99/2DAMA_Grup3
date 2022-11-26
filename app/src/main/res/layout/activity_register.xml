@@ -15,8 +15,8 @@
         android:scaleType="centerCrop"
         app:srcCompat="@drawable/backgroundweb"
         tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="26dp"
-        tools:layout_editor_absoluteY="0dp" />
+        tools:layout_editor_absoluteX="96dp"
+        tools:layout_editor_absoluteY="388dp" />
 
     <EditText
         android:id="@+id/editTextTextEmailAddress"
@@ -78,17 +78,14 @@
         app:passwordToggleEnabled="true"
         tools:ignore="MissingConstraints">
 
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="241dp"
+            android:layout_height="match_parent"
+            android:background="#EFEEEE"
+            android:hint="@string/password"
+            android:inputType="textVisiblePassword"
+            tools:ignore="MissingConstraints" />
     </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputEditText
-        android:layout_width="241dp"
-        android:layout_height="match_parent"
-        android:background="#EFEEEE"
-        android:hint="@string/password"
-        android:inputType="textVisiblePassword"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="96dp"
-        tools:layout_editor_absoluteY="398dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

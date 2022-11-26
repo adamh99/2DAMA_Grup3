@@ -28,6 +28,12 @@ public class dashboard extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void Rewards(View view) {
+        Intent intent = new Intent(this, RewardsPage.class);
+        startActivity(intent);
+    }
+
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
