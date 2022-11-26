@@ -33,7 +33,7 @@ private static final String LOG_TAG= LoginActivity.class.getSimpleName();
 
 
     public void signUp(View v){
-        Intent intent = new Intent(this, dashboard.class );
+        Intent intent = new Intent(this, RegisterAct.class );
         startActivity(intent);
     }
 
