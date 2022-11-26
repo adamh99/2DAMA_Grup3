@@ -8,6 +8,18 @@
     android:onClick="screenClicked"
     tools:context=".WelcomeActivity">
 
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:contentDescription="background"
+        android:scaleType="centerCrop"
+        app:srcCompat="@drawable/backgroundweb"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="26dp"
+        tools:layout_editor_absoluteY="0dp" />
+
     <TextView
         android:id="@+id/tap"
         android:layout_width="168dp"
@@ -32,9 +44,13 @@
         android:fontFamily="cursive"
         android:text="@string/welcome_to_plastic_precios"
         android:textSize="34sp"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="46dp"
-        tools:layout_editor_absoluteY="137dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.22"
+        tools:ignore="MissingConstraints" />
 
     <ImageView
         android:id="@+id/imageView"

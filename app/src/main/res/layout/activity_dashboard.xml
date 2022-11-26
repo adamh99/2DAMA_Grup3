@@ -1,24 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/linearLayout3"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center"
     android:orientation="vertical"
     tools:context=".dashboard">
 
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:contentDescription="background"
+        android:scaleType="centerCrop"
+        app:srcCompat="@drawable/backgroundweb"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="26dp"
+        tools:layout_editor_absoluteY="0dp" />
+
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="177dp"
+        android:layout_height="155dp"
+        android:onClick="dashboard"
+        app:srcCompat="@drawable/logo_1"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="117dp"
+        tools:layout_editor_absoluteY="76dp" />
+
     <Button
         android:id="@+id/findTrashBtn"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:onClick="findTrashClicked"
-        android:text="Buscar plasticos para recoger" />
+        android:text="Buscar plasticos para recoger"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.575"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.65" />
 
     <Button
         android:id="@+id/newTrashBtn"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:onClick="newTrashClicked"
-        android:text="Crear nuevo punto de recogida" />
-</LinearLayout>
+        android:text="Crear nuevo punto de recogida"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.583"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.478" />
+</androidx.constraintlayout.widget.ConstraintLayout>
