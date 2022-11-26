@@ -8,8 +8,7 @@
     <string name="next">Següent</string>
     <string name="previous">Anterior</string>
 
-    <string name="hello_first_fragment">Hola, Primer fragment</string>
-    <string name="hello_second_fragment">Hola, segon fragment</string>
+
     <string name="usernamehint">Nom Usuari</string>
     <string name="passwordhint">Contrasenya</string>
     <string name="login_button">Inici Sessió</string>
@@ -20,7 +19,19 @@
     <string name="title_activity_recyclerview">Recyclerview</string>
     <string name="pedidos_disponibles">Disponible</string>
     <string name="test">message</string>
-
+    <string name="title_activity_maps">MapsActivity</string>
+    <string name="normal_map" />
+    <string name="hybrid_map" />
+    <string name="satellite_map" />
+    <string name="terrain_map" />
+    <string name="item_2">Item 2</string>
+    <string name="item_3">Item 3</string>
+    <string name="password">Contrasenya</string>
+    <string name="e_mail">Mail</string>
+    <string name="sign_up">Registrar-se</string>
+    <string name="rewards">Recompenses</string>
+    <string name="new_product">Nou Producte</string>
+    <string name="current_location">Ubicacio Actual</string>
 
 
 
