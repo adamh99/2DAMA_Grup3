@@ -30,4 +30,6 @@
     <string name="e_mail">E-mail</string>
     <string name="sign_up">Sign Up</string>
     <string name="rewards">Rewards</string>
+    <string name="new_product">New Product</string>
+    <string name="current_location">Current Location</string>
 </resources>

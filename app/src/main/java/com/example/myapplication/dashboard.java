@@ -24,7 +24,7 @@ public class dashboard extends AppCompatActivity {
         startActivity(intent);
     }
     public void newTrashClicked(View v){
-        Intent intent = new Intent(this, MapsActivity.class);
+        Intent intent = new Intent(this, NewP.class);
         startActivity(intent);
     }
 
