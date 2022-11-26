@@ -1,48 +1,83 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/linearLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".LoginActivity">
 
-    <EditText
-        android:id="@+id/usernameField"
-        android:hint="@string/usernamehint"
-        style="@style/textfield"
-        android:digits="0123456789qwertzuiopasdfghjklyxcvbnm"/>
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="417dp"
+        android:layout_height="738dp"
+        android:contentDescription="background"
+        android:scaleType="centerCrop"
+        app:srcCompat="@drawable/backgroundweb"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="-3dp"
+        tools:layout_editor_absoluteY="-4dp" />
 
     <EditText
-        android:id="@+id/passwordField"
+        android:id="@+id/usernameField"
         style="@style/textfield"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="@string/passwordhint"
-        android:inputType="textPassword"
-        android:digits="0123456789qwertzuiopasdfghjklyxcvbnm"/>
+        android:digits="0123456789qwertzuiopasdfghjklyxcvbnm"
+        android:hint="@string/usernamehint"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.263"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.186" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="@dimen/signinButtonContainerMarginTop"
-        android:orientation="horizontal">
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="220dp"
+        android:layout_height="44dp"
+        app:passwordToggleEnabled="true"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="52dp"
+        tools:layout_editor_absoluteY="252dp">
 
-        <Button
-            android:id="@+id/button"
-            style="@style/signin_button"
-            android:layout_width="@dimen/login_button_w"
-            android:onClick="signUp"
-            android:text="@string/register_button" />
+    </com.google.android.material.textfield.TextInputLayout>
 
-        <Button
-            android:id="@+id/button2"
-            style="@style/signin_button"
-            android:layout_width="@dimen/login_button_w"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:onClick="login"
-            android:text="@string/login_button" />
-    </LinearLayout>
-</LinearLayout>
+    <Button
+        android:id="@+id/button"
+        style="@style/signin_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="signUp"
+        android:text="@string/register_button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.192"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/button2"
+        style="@style/signin_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="login"
+        android:text="@string/login_button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.699"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.499" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:layout_width="219dp"
+        android:layout_height="44dp"
+        android:hint="@string/password"
+        android:inputType="textVisiblePassword"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="53dp"
+        tools:layout_editor_absoluteY="252dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
