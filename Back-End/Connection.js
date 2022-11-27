@@ -199,6 +199,96 @@ app.get("/delete/:userID", (req, res) => {
         }
     });
 });
+//Creacio de nou Producte
+app.get("/create/:longitud/:latitud:/Nom", (req, res) => {
+    console.log("ha entrat a creacio");
+    let longitud = req.params.longitud;;
+    let latitud = req.params.latitud;
+    let Nom=req.params.Nom;
+    
+
+    let creation = {
+        text: ""
+    };
+
+    if(prodExists(Nom)){
+        creation.text = "Ja existeix un usuari amb aquests paràmetres, canvia el nom siusplau";
+        console.log("H entrat a user exist");
+    } else {
+        insertProd(longitud,latitud,Nom);
+        console.log("Ha entrat a user inset user");
+    }
+    
+    let str = JSON.stringify(creation);
+    res.send(str);
+});
+
+function prodExists (Nom) {
+
+    
+    let exist;
+    let con = mysql.createConnection(bdParams);
+
+    con.connect(function(err){
+        if(err) throw err;
+        else {
+            
+            let sql = "SELECT * FROM puntbrut WHERE IMATGE = '" + Nom + "'";
+            con.query(sql, function (err, result, fields){
+                if(err) throw err;
+                if(result.length == 0){
+                    exist = false;
+                } else {
+                    exist = true;
+                }
+            });
+
+            con.end(function(err) {
+                if (err){
+                    return console.log('error:' + err.message);
+                }
+            });
+        }
+        return exist;
+
+
+        
+
+    });
+}
+
+
+//INSERT PROD
+function insertProd(longitud, latitud,Nom){
+    
+    
+    let insertOK;
+    let con = mysql.createConnection(bdParams);
+
+    con.connect(function(err){
+        if(err) throw err;
+        else {
+
+            let sql = "INSERT INTO puntbrut (LONGITUD,LATITUD,IMATGE) VALUES ('" + longitud + "', '" + latitud + "','"+Nom+"')";
+
+            con.query(sql, function (err, result){
+                if(err) throw err;
+                if(result.affectedRows == 1){
+                    insertOK = true;
+                } else {
+                    insertOK = false;
+                }
+
+                con.end(function(err) {
+                    if (err){
+                        return console.log('error:' + err.message);
+                    }
+                });
+            });
+        }
+        return insertOK;
+    });
+}
 
 function iplog(username, req){
     fs.appendFile("iplogs.txt", username+" "+req.ip + " " + new Date()+"\n",function(err) {
