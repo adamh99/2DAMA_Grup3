@@ -1,7 +1,7 @@
 const express = require("express");
 const cors = require ("cors");
 const mysql = require ("mysql2");
-
+const fs = require("fs");
 
 const app = express();
 
@@ -48,10 +48,12 @@ app.get("/auth/:user/:pwd", (req, res) => {
     let user = req.params.user;
     let password = req.params.pwd;
 
+    iplog(user,req);
     let config = {
         auth: false,
         role: "",
     };
+
     let con = mysql.createConnection(bdParams);
 
     con.connect(function(err){
@@ -216,7 +218,14 @@ app.get("/delete/:userID", (req, res) => {
     });
 });
 
-
+function iplog(username, req){
+    fs.appendFile("iplogs.txt", username+" "+req.ip + " " + new Date()+"\n",function(err) {
+        if(err) {
+            return console.log(err);
+        }
+        console.log("The file was saved!");
+    }); 
+}
 
 
 
