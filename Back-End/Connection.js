@@ -51,9 +51,8 @@ app.get("/auth/:user/:pwd", (req, res) => {
     let config = {
         auth: false,
         role: "",
-        text: ""
     };
-    
+    let con = mysql.createConnection(bdParams);
 
     con.connect(function(err){
         if(err) throw err;
@@ -72,7 +71,6 @@ app.get("/auth/:user/:pwd", (req, res) => {
                     let row = result[0];
                     config.auth = true;
                     config.role = row.ROL;
-                    config.text = "Benvingut/da " + user;
                     //console.log(row.nick + ", " + row.rol);
                 }
 
@@ -148,7 +146,10 @@ function userExists (nom) {
             });
         }
         return exist;
+
+
         
+
     });
 }
 
