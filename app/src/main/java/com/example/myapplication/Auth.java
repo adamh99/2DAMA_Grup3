@@ -1,6 +1,7 @@
 package com.example.myapplication;
 
 import android.os.AsyncTask;
+import android.util.Log;
 
 import java.io.BufferedReader;
 import java.net.HttpURLConnection;
@@ -18,7 +19,7 @@ public class Auth extends AsyncTask<String, Void, String> {
     protected String doInBackground(String... strings) {
         String res = "No autentificado";
         boolean success = NetworkUtils.validateCredentials(strings[0]);
-        if(success) res = "Autentificado con éxito";
+        if(success) res = "Autentificado";
         return res;
     }
 

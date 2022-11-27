@@ -7,6 +7,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import java.util.concurrent.ExecutionException;
 
 public class LoginActivity extends AppCompatActivity {
 private static final String LOG_TAG= LoginActivity.class.getSimpleName();
@@ -17,16 +21,21 @@ private static final String LOG_TAG= LoginActivity.class.getSimpleName();
 
     }
 
-    /*/public void loginButtonClicked(View v){
+    public void loginButtonClicked(View v) throws ExecutionException, InterruptedException {
         TextView usernameField = findViewById(R.id.usernameField);
 
         TextView passwordField = findViewById(R.id.passwordField);
-        String credentials = usernameField.getText().toString() + " " + usernameField.getText().toString();
+        String credentials = usernameField.getText().toString() + " " + passwordField.getText().toString();
 
-        new Auth().execute(credentials);
+        if(new Auth().execute(credentials).get()=="Autentificado") {
+            login();
+        }else {
+            Toast toast= Toast.makeText(getApplicationContext(),"L'usuari no existeix",Toast.LENGTH_SHORT);
+
+            toast.show();  }
 
     }
-    /*/
+
 
 
 
@@ -37,7 +46,7 @@ private static final String LOG_TAG= LoginActivity.class.getSimpleName();
         startActivity(intent);
     }
 
-    public void login(View v) {
+    public void login() {
         Intent intent = new Intent(this, dashboard.class);
         startActivity(intent);
     }

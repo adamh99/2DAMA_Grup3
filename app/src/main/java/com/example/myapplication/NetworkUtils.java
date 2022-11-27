@@ -6,6 +6,9 @@ import android.net.Uri;
 import android.util.Log;
 import android.widget.ImageView;
 
+import org.json.JSONObject;
+import org.json.JSONTokener;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -17,26 +20,26 @@ public class NetworkUtils {
     private static final String LOG_TAG = NetworkUtils.class.getSimpleName();
 
     //Nuestra URL base
-    private static final String API_URL = "";
+    public static final String API_URL = "http://192.168.1.135:3000/";
     //Parametro para pasar el user
-    private static final String USERNAME = "username";
+    private static String username = "username";
     //Parametro para pasar el pass
-    private static final String PASSWORD = "password";
+    private static String pass = "password";
 
     static boolean validateCredentials(String credentials){ //credentials es username/email y pass separado por espacio
         boolean res = false;
-        String username = credentials.split(" ")[0];
-        String pass = credentials.split(" ")[1];
+        username = credentials.split(" ")[0];
+        pass = credentials.split(" ")[1];
 
         HttpURLConnection urlConnection = null;
         BufferedReader reader = null;
 
         try {
-            Uri builtURI = Uri.parse(API_URL).buildUpon()
+            /*Uri builtURI = Uri.parse(API_URL).buildUpon()
                     .appendQueryParameter(USERNAME, username)
                     .appendQueryParameter(PASSWORD, pass)
-                    .build();
-            URL requestURL = new URL(builtURI.toString());
+                    .build(); */
+            URL requestURL = new URL(API_URL+"auth/"+username+"/"+pass);
 
             urlConnection = (HttpURLConnection) requestURL.openConnection();
             urlConnection.setRequestMethod("GET");
@@ -46,7 +49,11 @@ public class NetworkUtils {
             InputStream inputStream = urlConnection.getInputStream();
 
             // El primer byte te dice si la auth ha salido bien o no. SIN TESTEAR
-            res = inputStream.read() != 0;
+            reader = new BufferedReader(new InputStreamReader(inputStream));
+            StringBuilder builder = new StringBuilder();
+
+            if(reader.readLine().contains("\"auth\":true"))
+                res = true;
 
         } catch (IOException e) {
             e.printStackTrace();
