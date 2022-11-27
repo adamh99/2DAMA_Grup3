@@ -19,12 +19,13 @@ import java.net.URL;
 public class NetworkUtils {
     private static final String LOG_TAG = NetworkUtils.class.getSimpleName();
 
-    //Nuestra URL base
+
     public static final String API_URL = "http://192.168.1.135:3000/";
-    //Parametro para pasar el user
-    private static String username = "username";
-    //Parametro para pasar el pass
-    private static String pass = "password";
+    private static String username = "";
+    private static String pass = "";
+
+    private static String email = "";
+
 
     static boolean validateCredentials(String credentials){ //credentials es username/email y pass separado por espacio
         boolean res = false;
@@ -98,6 +99,52 @@ public class NetworkUtils {
             Log.e("Exception",ex.toString());
         }
         return bmp;
+    }
+    public static boolean register(String userdata){
+        boolean success = false;
+        username = userdata.split(" ")[0];
+        pass = userdata.split(" ")[1];
+        email = userdata.split(" ")[2];
+
+        HttpURLConnection urlConnection = null;
+        BufferedReader reader = null;
+
+        try {
+            /*Uri builtURI = Uri.parse(API_URL).buildUpon()
+                    .appendQueryParameter(USERNAME, username)
+                    .appendQueryParameter(PASSWORD, pass)
+                    .build(); */
+            URL requestURL = new URL(API_URL+"create/"+username+"/"+pass+"/"+email);
+
+            urlConnection = (HttpURLConnection) requestURL.openConnection();
+            urlConnection.setRequestMethod("GET");
+            urlConnection.connect();
+
+            // Get the InputStream.
+            InputStream inputStream = urlConnection.getInputStream();
+
+            // El primer byte te dice si la auth ha salido bien o no. SIN TESTEAR
+            reader = new BufferedReader(new InputStreamReader(inputStream));
+            StringBuilder builder = new StringBuilder();
+
+            if(reader.readLine().contains("Usuari creat"))
+                success = true;
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            if (urlConnection != null) {
+                urlConnection.disconnect();
+            }
+            if (reader != null) {
+                try {
+                    reader.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+        return success;
     }
 }
 
