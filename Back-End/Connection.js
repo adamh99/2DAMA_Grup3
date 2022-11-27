@@ -59,7 +59,7 @@ app.get("/auth/:user/:pwd", (req, res) => {
     con.connect(function(err){
         if(err) throw err;
         else {
-            let sql = "SELECT * FROM usuari WHERE nom = '" + user + "' AND PASS = '" + password + "'";
+            let sql = "SELECT * FROM usuari WHERE NOM = '" + user + "' AND PASS = '" + password + "'";
             console.log(sql);
             con.query(sql, function (err, result, fields){
                 if(err) throw err;
@@ -93,7 +93,7 @@ app.get("/auth/:user/:pwd", (req, res) => {
 
 
 //Creacio de nou usuari
-app.get("/create/:user/:pwd", (req, res) => {
+app.get("/create/:user/:pwd/:email", (req, res) => {
     console.log("ha entrat a creacio");
     let user = req.params.user;
     let password = req.params.pwd;
@@ -104,88 +104,70 @@ app.get("/create/:user/:pwd", (req, res) => {
         text: ""
     };
 
-    if(userExists(user)){
-        creation.text = "Ja existeix un usuari amb aquests paràmetres, canvia el nom siusplau";
-        console.log("H entrat a user exist");
-    } else {
-        insertUser(user,password,email);
-        console.log("Ha entrat a user inset user");
-    }
-    
-    let str = JSON.stringify(creation);
-    res.send(str);
-});
-
-
-
-
-//Funcions de suport
-//CHECK IF USER EXIST
-function userExists (nom) {
-
-    
-    let exist;
-    let con = mysql.createConnection(bdParams);
-
-    con.connect(function(err){
-        if(err) throw err;
-        else {
-            
-            let sql = "SELECT * FROM usuari WHERE nom = '" + nom + "'";
-            con.query(sql, function (err, result, fields){
-                if(err) throw err;
-                if(result.length == 0){
-                    exist = false;
-                } else {
-                    exist = true;
-                }
-            });
-
-            con.end(function(err) {
-                if (err){
-                    return console.log('error:' + err.message);
-                }
-            });
-        }
-        return exist;
-
-
-        
-
-    });
-}
-
-
-//INSERT USER
-function insertUser(nom, password,email){
-    
-    
-    let insertOK;
     let con = mysql.createConnection(bdParams);
 
     con.connect(function(err){
         if(err) throw err;
         else {
 
-            let sql = "INSERT INTO usuari (ID,NOM,PASS,MAIL) VALUES (2,'" + nom + "', '" + password + "','"+email+"')";
+            let sql = "INSERT INTO usuari (NOM,PASS,MAIL) VALUES ('"+user + "', '" + password + "','"+email+"')";
 
             con.query(sql, function (err, result){
-                if(err) throw err;
-                if(result.affectedRows == 1){
-                    insertOK = true;
-                } else {
-                    insertOK = false;
-                }
-
+                if(err){ console.log(err)
+                res.send("Dades ja existents")}
+                else if(result.affectedRows == 1){
+                    
+                    res.send("Usuari creat")
+                } else res.send("Dades ja existents");
+                
                 con.end(function(err) {
                     if (err){
                         return console.log('error:' + err.message);
                     }
                 });
+                
             });
         }
-        return insertOK;
+       
+        
     });
+    
+    
+});
+
+
+//INSERT USER
+function insertUser(nom, password,email, res){
+    
+    
+    var insertOK;
+    let con = mysql.createConnection(bdParams);
+
+    con.connect(function(err){
+        if(err) throw err;
+        else {
+
+            let sql = "INSERT INTO usuari (NOM,PASS,MAIL) VALUES ('"+nom + "', '" + password + "','"+email+"')";
+
+            con.query(sql, function (err, result){
+                if(err){ console.log(err)}
+                else if(result.affectedRows == 1){
+                    insertOK = true;
+                    console.log(insertOK)
+                } else insertOK = false;
+                
+                con.end(function(err) {
+                    if (err){
+                        return console.log('error:' + err.message);
+                    }
+                });
+                
+            });
+        }
+        console.log(insertOK)
+        
+    });
+    return insertOK;
 }
 
 
