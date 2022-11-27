@@ -7,6 +7,17 @@
     android:background="#81B3CA"
     tools:ignore="MissingDefaultResource">
 
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:contentDescription="background"
+        android:scaleType="centerCrop"
+        app:srcCompat="@drawable/backgroundweb"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="26dp"
+        tools:layout_editor_absoluteY="0dp" />
+
     <TextView
         android:id="@+id/tap2"
         android:layout_width="168dp"
