@@ -8,6 +8,7 @@ import androidx.core.content.ContextCompat;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Address;
 import android.location.Geocoder;
@@ -17,11 +18,13 @@ import android.location.LocationManager;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.List;
 import java.util.Locale;
+import java.util.concurrent.ExecutionException;
 
 
 public class NewP extends AppCompatActivity implements LocationListener {
@@ -63,11 +66,17 @@ public class NewP extends AppCompatActivity implements LocationListener {
         }
 
     }
-
+    EditText latitudField;
+    EditText longitudField;
+    EditText nameField;
     @Override
     public void onLocationChanged(@NonNull Location location) {
-        Toast.makeText(this,""+location.getLatitude()+ "," + location.getLongitude(),Toast.LENGTH_LONG).show();
-
+        Toast.makeText(this,""+location.getLatitude()+ "," + location.getLongitude(),Toast.LENGTH_SHORT).show();
+        latitudField = findViewById(R.id.latitudField);
+        longitudField = findViewById(R.id.longitudField);
+        nameField = findViewById(R.id.nameField);
+        latitudField.setText(String.valueOf(location.getLatitude()),TextView.BufferType.EDITABLE);
+        longitudField.setText(String.valueOf(location.getLongitude()),TextView.BufferType.EDITABLE);
         try {
             Geocoder geocoder =  new Geocoder(NewP.this, Locale.getDefault());
             List<Address> adresses = geocoder.getFromLocation(location.getLatitude(),location.getLongitude(),1);
@@ -102,5 +111,13 @@ public class NewP extends AppCompatActivity implements LocationListener {
     @Override
     public void onProviderDisabled(@NonNull String provider) {
         LocationListener.super.onProviderDisabled(provider);
+    }
+
+    public void insertarPunt(View v) throws ExecutionException, InterruptedException {
+        if(new InsertPunt().execute(longitudField.getText().toString()+";"
+                +latitudField.getText().toString()+";"+nameField.getText().toString()).get()=="Punt creat") {
+            Toast toast= Toast.makeText(getApplicationContext(),"Punt insertat correctament",Toast.LENGTH_SHORT);
+            toast.show();
+        }
     }
 }

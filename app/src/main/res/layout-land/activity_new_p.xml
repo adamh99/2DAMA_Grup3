@@ -33,7 +33,7 @@
         app:layout_constraintVertical_bias="0.526" />
 
     <EditText
-        android:id="@+id/lat"
+        android:id="@+id/latitudField"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -48,7 +48,7 @@
         tools:ignore="MissingConstraints" />
 
     <EditText
-        android:id="@+id/longi"
+        android:id="@+id/longitudField"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -63,7 +63,7 @@
         tools:ignore="MissingConstraints" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName6"
+        android:id="@+id/nameField"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"

@@ -20,7 +20,7 @@ public class NetworkUtils {
     private static final String LOG_TAG = NetworkUtils.class.getSimpleName();
 
 
-    public static final String API_URL = "http://192.168.1.135:3000/";
+    public static final String API_URL = "http://192.168.207.114:3000/";
     private static String username = "";
     private static String pass = "";
 
@@ -128,6 +128,53 @@ public class NetworkUtils {
             StringBuilder builder = new StringBuilder();
 
             if(reader.readLine().contains("Usuari creat"))
+                success = true;
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            if (urlConnection != null) {
+                urlConnection.disconnect();
+            }
+            if (reader != null) {
+                try {
+                    reader.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+        return success;
+    }
+
+    public static boolean insertPunt(String puntData){
+        boolean success = false;
+        String latitud = puntData.split(";")[0];
+        String longitud = puntData.split(";")[1];
+        String nom = puntData.split(";")[2];
+
+        HttpURLConnection urlConnection = null;
+        BufferedReader reader = null;
+
+        try {
+            /*Uri builtURI = Uri.parse(API_URL).buildUpon()
+                    .appendQueryParameter(USERNAME, username)
+                    .appendQueryParameter(PASSWORD, pass)
+                    .build(); */
+            URL requestURL = new URL(API_URL+"createProd/"+latitud+"/"+longitud+"/"+nom);
+
+            urlConnection = (HttpURLConnection) requestURL.openConnection();
+            urlConnection.setRequestMethod("GET");
+            urlConnection.connect();
+
+            // Get the InputStream.
+            InputStream inputStream = urlConnection.getInputStream();
+
+            // El primer byte te dice si la auth ha salido bien o no. SIN TESTEAR
+            reader = new BufferedReader(new InputStreamReader(inputStream));
+            StringBuilder builder = new StringBuilder();
+
+            if(reader.readLine().contains("Punt creat"))
                 success = true;
 
         } catch (IOException e) {
