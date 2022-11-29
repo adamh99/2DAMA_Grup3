@@ -250,6 +250,7 @@ function prodExists (Nom) {
             });
         }
         return exist;
+        
 
 
         
