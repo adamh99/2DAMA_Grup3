@@ -1,6 +1,6 @@
 const express = require("express");
-const cors = require ("cors");
-const mysql = require ("mysql2");
+const cors = require("cors");
+const mysql = require("mysql2");
 const fs = require("fs");
 
 const app = express();
@@ -32,13 +32,11 @@ const bdParams = {
 
     }
 });*/
-app.use(cors(
-    {
-        origin: function(origin, callback){
-            return callback(null, true);
-        }
+app.use(cors({
+    origin: function(origin, callback) {
+        return callback(null, true);
     }
-));
+}));
 
 
 
@@ -48,7 +46,7 @@ app.get("/auth/:user/:pwd", (req, res) => {
     let user = req.params.user;
     let password = req.params.pwd;
 
-    iplog(user,req);
+    iplog(user, req);
     let config = {
         auth: false,
         role: "",
@@ -56,17 +54,17 @@ app.get("/auth/:user/:pwd", (req, res) => {
 
     let con = mysql.createConnection(bdParams);
 
-    con.connect(function(err){
-        if(err) throw err;
+    con.connect(function(err) {
+        if (err) throw err;
         else {
             let sql = "SELECT * FROM usuari WHERE NOM = '" + user + "' AND PASS = '" + password + "'";
             console.log(sql);
-            con.query(sql, function (err, result, fields){
-                if(err) throw err;
-                if(result.length == 0){
+            con.query(sql, function(err, result, fields) {
+                if (err) throw err;
+                if (result.length == 0) {
                     //console.log("No existeix l'usuari. Crea't un compte abans.")
                     config.text = "No existeix l'usuari. Crea't un compte abans.";
-                } else if (result.length > 1){
+                } else if (result.length > 1) {
                     //console.log("Alguna cosa ha anat malament.")
                     config.text = "Alguna cosa ha anat malament.";
                 } else {
@@ -81,7 +79,7 @@ app.get("/auth/:user/:pwd", (req, res) => {
             });
 
             con.end(function(err) {
-                if (err){
+                if (err) {
                     return console.log('error:' + err.message);
                 }
             });
@@ -97,8 +95,8 @@ app.get("/create/:user/:pwd/:email", (req, res) => {
     console.log("ha entrat a creacio");
     let user = req.params.user;
     let password = req.params.pwd;
-    let email=req.params.email;
-    
+    let email = req.params.email;
+
 
     let creation = {
         text: ""
@@ -106,66 +104,112 @@ app.get("/create/:user/:pwd/:email", (req, res) => {
 
     let con = mysql.createConnection(bdParams);
 
-    con.connect(function(err){
-        if(err) throw err;
+    con.connect(function(err) {
+        if (err) throw err;
         else {
 
-            let sql = "INSERT INTO usuari (NOM,PASS,MAIL) VALUES ('"+user + "', '" + password + "','"+email+"')";
+            let sql = "INSERT INTO usuari (NOM,PASS,MAIL) VALUES ('" + user + "', '" + password + "','" + email + "')";
 
-            con.query(sql, function (err, result){
-                if(err){ console.log(err)
-                res.send("Dades ja existents")}
-                else if(result.affectedRows == 1){
-                    
+            con.query(sql, function(err, result) {
+                if (err) {
+                    console.log(err)
+                    res.send("Dades ja existents")
+                } else if (result.affectedRows == 1) {
+
                     res.send("Usuari creat")
                 } else res.send("Dades ja existents");
-                
+
                 con.end(function(err) {
-                    if (err){
+                    if (err) {
                         return console.log('error:' + err.message);
                     }
                 });
-                
+
             });
         }
-       
-        
+
+
     });
-    
-    
+
+
+});
+
+
+
+//Creacio punt brut
+app.get("/createProd/:longitud/:latitud/:Nom", (req, res) => {
+    console.log("ha entrat a creacio");
+    let long = req.params.longitud;
+    let lat = req.params.latitud;
+    let nom = req.params.Nom;
+
+
+    let creation = {
+        text: ""
+    };
+
+    let con = mysql.createConnection(bdParams);
+
+    con.connect(function(err) {
+        if (err) throw err;
+        else {
+
+            let sql = "INSERT INTO puntbrut (LONGITUD,LATITUD,IMATGE) VALUES ('" + long + "', '" + lat + "','" + nom + "')";
+
+            con.query(sql, function(err, result) {
+                if (err) {
+                    console.log(err)
+                    res.send("Dades ja existents")
+                } else if (result.affectedRows == 1) {
+
+                    res.send("Usuari creat")
+                } else res.send("Dades ja existents");
+
+                con.end(function(err) {
+                    if (err) {
+                        return console.log('error:' + err.message);
+                    }
+                });
+
+            });
+        }
+
+
+    });
+
+
 });
 
 
 //INSERT USER
-function insertUser(nom, password,email, res){
-    
-    
+function insertUser(nom, password, email, res) {
+
+
     var insertOK;
     let con = mysql.createConnection(bdParams);
 
-    con.connect(function(err){
-        if(err) throw err;
+    con.connect(function(err) {
+        if (err) throw err;
         else {
 
-            let sql = "INSERT INTO usuari (NOM,PASS,MAIL) VALUES ('"+nom + "', '" + password + "','"+email+"')";
+            let sql = "INSERT INTO usuari (NOM,PASS,MAIL) VALUES ('" + nom + "', '" + password + "','" + email + "')";
 
-            con.query(sql, function (err, result){
-                if(err){ console.log(err)}
-                else if(result.affectedRows == 1){
+            con.query(sql, function(err, result) {
+                if (err) { console.log(err) } else if (result.affectedRows == 1) {
                     insertOK = true;
                     console.log(insertOK)
                 } else insertOK = false;
-                
+
                 con.end(function(err) {
-                    if (err){
+                    if (err) {
                         return console.log('error:' + err.message);
                     }
                 });
-                
+
             });
         }
         console.log(insertOK)
-        
+
     });
     return insertOK;
 }
@@ -175,14 +219,14 @@ function insertUser(nom, password,email, res){
 app.get("/delete/:userID", (req, res) => {
 
     let id = req.params.userID;
-    
-    con.connect(function (err){
-        if(err) throw err;
+
+    con.connect(function(err) {
+        if (err) throw err;
         else {
             let sqlDelete = "DELETE FROM usuari WHERE ID = " + id;
-            con.query(sqlDelete, function (err, result){
+            con.query(sqlDelete, function(err, result) {
                 if (err) throw err;
-                if (result.affectedRows == 0){
+                if (result.affectedRows == 0) {
                     console.log("Aquest Usuari no existeix, és extrany oi?")
                     return false;
                 } else {
@@ -192,7 +236,7 @@ app.get("/delete/:userID", (req, res) => {
             });
 
             con.end(function(err) {
-                if (err){
+                if (err) {
                     return console.log('error:' + err.message);
                 }
             });
@@ -204,39 +248,39 @@ app.get("/create/:longitud/:latitud:/Nom", (req, res) => {
     console.log("ha entrat a creacio");
     let longitud = req.params.longitud;;
     let latitud = req.params.latitud;
-    let Nom=req.params.Nom;
-    
+    let Nom = req.params.Nom;
+
 
     let creation = {
         text: ""
     };
 
-    if(prodExists(Nom)){
+    if (prodExists(Nom)) {
         creation.text = "Ja existeix un usuari amb aquests paràmetres, canvia el nom siusplau";
         console.log("H entrat a user exist");
     } else {
-        insertProd(longitud,latitud,Nom);
+        insertProd(longitud, latitud, Nom);
         console.log("Ha entrat a user inset user");
     }
-    
+
     let str = JSON.stringify(creation);
     res.send(str);
 });
 
-function prodExists (Nom) {
+function prodExists(Nom) {
 
-    
+
     let exist;
     let con = mysql.createConnection(bdParams);
 
-    con.connect(function(err){
-        if(err) throw err;
+    con.connect(function(err) {
+        if (err) throw err;
         else {
-            
+
             let sql = "SELECT * FROM puntbrut WHERE IMATGE = '" + Nom + "'";
-            con.query(sql, function (err, result, fields){
-                if(err) throw err;
-                if(result.length == 0){
+            con.query(sql, function(err, result, fields) {
+                if (err) throw err;
+                if (result.length == 0) {
                     exist = false;
                 } else {
                     exist = true;
@@ -244,44 +288,44 @@ function prodExists (Nom) {
             });
 
             con.end(function(err) {
-                if (err){
+                if (err) {
                     return console.log('error:' + err.message);
                 }
             });
         }
         return exist;
-        
 
 
-        
+
+
 
     });
 }
 
 
 //INSERT PROD
-function insertProd(longitud, latitud,Nom){
-    
-    
+function insertProd(longitud, latitud, Nom) {
+
+
     let insertOK;
     let con = mysql.createConnection(bdParams);
 
-    con.connect(function(err){
-        if(err) throw err;
+    con.connect(function(err) {
+        if (err) throw err;
         else {
 
-            let sql = "INSERT INTO puntbrut (LONGITUD,LATITUD,IMATGE) VALUES ('" + longitud + "', '" + latitud + "','"+Nom+"')";
+            let sql = "INSERT INTO puntbrut (LONGITUD,LATITUD,IMATGE) VALUES ('" + longitud + "', '" + latitud + "','" + Nom + "')";
 
-            con.query(sql, function (err, result){
-                if(err) throw err;
-                if(result.affectedRows == 1){
+            con.query(sql, function(err, result) {
+                if (err) throw err;
+                if (result.affectedRows == 1) {
                     insertOK = true;
                 } else {
                     insertOK = false;
                 }
 
                 con.end(function(err) {
-                    if (err){
+                    if (err) {
                         return console.log('error:' + err.message);
                     }
                 });
@@ -291,13 +335,13 @@ function insertProd(longitud, latitud,Nom){
     });
 }
 
-function iplog(username, req){
-    fs.appendFile("iplogs.txt", username+" "+req.ip + " " + new Date()+"\n",function(err) {
-        if(err) {
+function iplog(username, req) {
+    fs.appendFile("iplogs.txt", username + " " + req.ip + " " + new Date() + "\n", function(err) {
+        if (err) {
             return console.log(err);
         }
         console.log("The file was saved!");
-    }); 
+    });
 }
 
 
@@ -305,10 +349,6 @@ function iplog(username, req){
 
 const PORT = 3000;
 
-app.listen(PORT, () =>{
-    console.log("Server running =>"+PORT)});
-
-
-
-
-
+app.listen(PORT, () => {
+    console.log("Server running =>" + PORT)
+});
