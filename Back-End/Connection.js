@@ -5,12 +5,6 @@ const fs = require("fs");
 
 const app = express();
 
-/*var con  = mysql.createConnection ({
-    host: "labs.inspedralbes.cat",
-    user: "a21marsanbla_grup3",
-    password: "Projecte123",
-    database: "a21marsanbla_project"
-});*/
 
 const bdParams = {
     host: "labs.inspedralbes.cat",
@@ -19,19 +13,7 @@ const bdParams = {
     database: "a21marsanbla_project"
 }
 
-/*con.connect(function(err){
-    if(err) throw err;
-    else{
-        console.log("Successfully connected");
 
-        let sql = "SELECT * FROM usuari WHERE "
-
-
-
-
-
-    }
-});*/
 app.use(cors({
     origin: function(origin, callback) {
         return callback(null, true);
