@@ -20,7 +20,7 @@ public class NetworkUtils {
     private static final String LOG_TAG = NetworkUtils.class.getSimpleName();
 
 
-    public static final String API_URL = "http://192.168.207.114:3000/";
+    public static final String API_URL = "http://192.168.18.212:3000/";
     private static String username = "";
     private static String pass = "";
 

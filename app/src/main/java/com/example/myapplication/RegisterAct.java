@@ -2,10 +2,12 @@ package com.example.myapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ActionBar;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -14,7 +16,7 @@ import android.widget.Toast;
 
 import java.util.concurrent.ExecutionException;
 
-public class RegisterAct extends AppCompatActivity {
+public class RegisterAct extends AppCompatActivity{
     private static final String LOG_TAG =
             RegisterAct.class.getSimpleName();
 
@@ -22,8 +24,6 @@ public class RegisterAct extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
-
-
 
     }
 

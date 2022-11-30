@@ -21,11 +21,13 @@
         tools:layout_editor_absoluteY="-4dp" />
 
     <EditText
+        android:inputType="text"
+
         android:id="@+id/usernameField"
         style="@style/textfield"
         android:layout_width="237dp"
         android:layout_height="46dp"
-        android:digits="0123456789qwertzuiopasdfghjklyxcvbnm"
+        android:digits="0123456789*,qwertzuiopasdfghjklyxcvbnm"
         android:hint="@string/usernamehint"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

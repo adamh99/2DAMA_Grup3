@@ -47,8 +47,9 @@
             android:name=".RegisterAct"
             android:exported="false">
             <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
+
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.myapplication.LoginActivity" />/>
         </activity>
         <!--
              TODO: Before you run your application, you need a Google Maps API key.
