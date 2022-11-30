@@ -12,7 +12,6 @@ public class BitmapFromURL extends AsyncTask<String, Void, String> {
 
 
     public BitmapFromURL(){
-        //toast te debería decir el resultado de la autentificación
 
     }
 

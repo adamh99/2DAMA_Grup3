@@ -42,19 +42,4 @@ public class dashboard extends AppCompatActivity {
         return true;
     }
 
-
-    /*/public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        switch (item.getItemId()){
-            case R.id.item1:
-                Toast.makeText(this,"Test", Toast.LENGTH_SHORT);
-
-            case R.id.item2:
-                Toast.makeText(this,"Test", Toast.LENGTH_SHORT);
-
-            case R.id.item3:
-                Toast.makeText(this,"Test", Toast.LENGTH_SHORT);
-
-        }
-        return super.onOptionsItemSelected(item);/*/
-
 }

@@ -11,7 +11,6 @@ public class InsertPunt extends AsyncTask<String, Void, String> {
 
 
     public InsertPunt() {
-        //toast te debería decir el resultado de la autentificación
 
     }
 

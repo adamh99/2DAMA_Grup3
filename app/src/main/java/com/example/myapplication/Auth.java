@@ -12,7 +12,7 @@ public class Auth extends AsyncTask<String, Void, String> {
 
 
     public Auth(){
-    //toast te debería decir el resultado de la autentificación
+
 
     }
 

@@ -12,7 +12,6 @@ public class Register extends AsyncTask<String, Void, String> {
 
 
     public Register(){
-        //toast te debería decir el resultado de la autentificación
 
     }
 

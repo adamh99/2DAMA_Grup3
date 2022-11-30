@@ -36,10 +36,7 @@ public class NetworkUtils {
         BufferedReader reader = null;
 
         try {
-            /*Uri builtURI = Uri.parse(API_URL).buildUpon()
-                    .appendQueryParameter(USERNAME, username)
-                    .appendQueryParameter(PASSWORD, pass)
-                    .build(); */
+
             URL requestURL = new URL(API_URL+"auth/"+username+"/"+pass);
 
             urlConnection = (HttpURLConnection) requestURL.openConnection();
@@ -49,7 +46,7 @@ public class NetworkUtils {
             // Get the InputStream.
             InputStream inputStream = urlConnection.getInputStream();
 
-            // El primer byte te dice si la auth ha salido bien o no. SIN TESTEAR
+            // El primer byte te dice si la auth ha salido bien o no.
             reader = new BufferedReader(new InputStreamReader(inputStream));
             StringBuilder builder = new StringBuilder();
 
@@ -110,10 +107,7 @@ public class NetworkUtils {
         BufferedReader reader = null;
 
         try {
-            /*Uri builtURI = Uri.parse(API_URL).buildUpon()
-                    .appendQueryParameter(USERNAME, username)
-                    .appendQueryParameter(PASSWORD, pass)
-                    .build(); */
+
             URL requestURL = new URL(API_URL+"create/"+username+"/"+pass+"/"+email);
 
             urlConnection = (HttpURLConnection) requestURL.openConnection();
@@ -123,7 +117,7 @@ public class NetworkUtils {
             // Get the InputStream.
             InputStream inputStream = urlConnection.getInputStream();
 
-            // El primer byte te dice si la auth ha salido bien o no. SIN TESTEAR
+            // El primer byte te dice si la auth ha salido bien o no.
             reader = new BufferedReader(new InputStreamReader(inputStream));
             StringBuilder builder = new StringBuilder();
 
@@ -157,10 +151,7 @@ public class NetworkUtils {
         BufferedReader reader = null;
 
         try {
-            /*Uri builtURI = Uri.parse(API_URL).buildUpon()
-                    .appendQueryParameter(USERNAME, username)
-                    .appendQueryParameter(PASSWORD, pass)
-                    .build(); */
+
             URL requestURL = new URL(API_URL+"createProd/"+latitud+"/"+longitud+"/"+nom);
 
             urlConnection = (HttpURLConnection) requestURL.openConnection();
@@ -170,7 +161,7 @@ public class NetworkUtils {
             // Get the InputStream.
             InputStream inputStream = urlConnection.getInputStream();
 
-            // El primer byte te dice si la auth ha salido bien o no. SIN TESTEAR
+            // El primer byte te dice si la auth ha salido bien o no
             reader = new BufferedReader(new InputStreamReader(inputStream));
             StringBuilder builder = new StringBuilder();
 
